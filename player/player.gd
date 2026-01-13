@@ -59,7 +59,7 @@ func crash_sequence():
 
 func complete_level(next_level):
 	success.play()
-	success_particles.emitting = true
+	success_particles.emittingwd = true
 	transitioning=true
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file.call_deferred(next_level)
