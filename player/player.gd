@@ -16,7 +16,8 @@ func _process(delta: float) -> void:
 	if not transitioning:
 		if Input.is_action_pressed("space"):
 			apply_central_force(basis.y *delta *force)
-			rocket.play()
+			if not rocket.is_playing():
+				rocket.play()
 		if Input.is_action_pressed("rleft"):
 			apply_torque(Vector3(0,0,delta*torque))
 		if Input.is_action_pressed("rright"):
