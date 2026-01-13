@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgoqies51lrhw"]
+[gd_scene load_steps=10 format=3 uid="uid://dgoqies51lrhw"]
 
 [ext_resource type="Script" uid="uid://b01rlved42qfa" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="AudioStream" uid="uid://73q7mavdhbbb" path="res://assets/SFX - Death Explosion.ogg" id="2_yw30f"]
 [ext_resource type="AudioStream" uid="uid://bt4a4qtprqy4b" path="res://assets/SFX - Success.ogg" id="3_qjkh3"]
 [ext_resource type="AudioStream" uid="uid://dfe23apob4s3j" path="res://assets/SFX - Main engine thrust.ogg" id="4_g6k8r"]
-[ext_resource type="PackedScene" path="res://player/booster_particles.tscn" id="5_qjkh3"]
+[ext_resource type="PackedScene" uid="uid://ux6ivcx1ovdp" path="res://particles/booster_particles.tscn" id="5_qjkh3"]
+[ext_resource type="PackedScene" path="res://particles/success_particles.tscn" id="6_boad6"]
+[ext_resource type="PackedScene" path="res://particles/explosion_particles.tscn" id="7_rgyib"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_g1dw6"]
 
@@ -47,5 +49,9 @@ emitting = false
 [node name="right" parent="." instance=ExtResource("5_qjkh3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, -1.142, 0)
 emitting = false
+
+[node name="SuccessParticles" parent="." instance=ExtResource("6_boad6")]
+
+[node name="ExplosionParticles" parent="." instance=ExtResource("7_rgyib")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -9,7 +9,9 @@ var transitioning :=false
 @onready var center: GPUParticles3D = $center
 @onready var left: GPUParticles3D = $left
 @onready var right: GPUParticles3D = $right
+@onready var explosion_particles: GPUParticles3D = $ExplosionParticles
 
+@onready var success_particles: GPUParticles3D = $SuccessParticles
 
 
 
@@ -48,6 +50,7 @@ func _on_body_entered(body: Node) -> void:
 		
 func crash_sequence():
 	explosion.play()
+	explosion_particles.emitting = true
 	transitioning=true
 	left.emitting=false
 	right.emitting = false
@@ -56,6 +59,7 @@ func crash_sequence():
 
 func complete_level(next_level):
 	success.play()
+	success_particles.emitting = true
 	transitioning=true
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file.call_deferred(next_level)
