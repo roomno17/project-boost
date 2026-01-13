@@ -75,15 +75,15 @@ transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 10, 0, 0)
 use_collision = true
 material = SubResource("StandardMaterial3D_80vhd")
 script = ExtResource("1_hldmh")
-file_path = "uid://yb8ot6oskx2t"
+file_path = "uid://43qnw1c1cwpa"
 
 [node name="launch" type="CSGBox3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, -10, 0, 0)
 use_collision = true
 material = SubResource("StandardMaterial3D_hjsbj")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 7.630209, 9.031474)
-
 [node name="player" parent="." instance=ExtResource("2_gew73")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5144262, 0)
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9978567, 0.06543796, 0, -0.06543796, 0.9978567, -0.21551812, 5.4469175, 10.592631)

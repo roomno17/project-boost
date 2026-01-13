@@ -53,7 +53,7 @@ use_collision = true
 material = SubResource("StandardMaterial3D_hjsbj")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.99183667, 0.1275147, 0, -0.1275147, 0.99183667, 0, 6.279314, 9.272113)
+transform = Transform3D(1, 0, 0, 0, 0.9934707, -0.11408756, 0, 0.11408756, 0.9934707, -0.21551812, 5.4169273, 10.592631)
 
 [node name="player" parent="." instance=ExtResource("1_80vhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5144262, 0)
