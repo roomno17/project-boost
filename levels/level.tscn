@@ -1,23 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://yb8ot6oskx2t"]
+[gd_scene load_steps=7 format=3 uid="uid://yb8ot6oskx2t"]
 
+[ext_resource type="PackedScene" uid="uid://1fll3osir48h" path="res://levels/canvas_layer.tscn" id="1_5mrsh"]
 [ext_resource type="PackedScene" uid="uid://dgoqies51lrhw" path="res://player/player.tscn" id="1_80vhd"]
+[ext_resource type="PackedScene" uid="uid://bio4ooejc0ybk" path="res://levels/floor.tscn" id="1_cwqvt"]
 [ext_resource type="Script" uid="uid://7vq3wikl6qns" path="res://levels/land.gd" id="1_hjsbj"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_umreq"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_80vhd"]
-sky_material = SubResource("ProceduralSkyMaterial_umreq")
-
-[sub_resource type="Environment" id="Environment_hjsbj"]
-background_mode = 2
-sky = SubResource("Sky_80vhd")
-tonemap_mode = 2
-glow_enabled = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umreq"]
-albedo_color = Color(0.99999887, 0.526115, 0.26886782, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80vhd"]
 albedo_color = Color(0, 0.98625416, 0.22187486, 1)
@@ -27,18 +13,10 @@ albedo_color = Color(1, 0, 0, 1)
 
 [node name="level" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 8.836835, 0)
-shadow_enabled = true
+[node name="CanvasLayer" parent="." instance=ExtResource("1_5mrsh")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_hjsbj")
-
-[node name="floor" type="CSGBox3D" parent="." groups=["surroundings"]]
+[node name="floor" parent="." instance=ExtResource("1_cwqvt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-use_collision = true
-size = Vector3(34, 8, 5)
-material = SubResource("StandardMaterial3D_umreq")
 
 [node name="land" type="CSGBox3D" parent="." groups=["goal"]]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 10, 0, 0)
@@ -53,7 +31,7 @@ use_collision = true
 material = SubResource("StandardMaterial3D_hjsbj")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9934707, -0.11408756, 0, 0.11408756, 0.9934707, -0.21551812, 5.4169273, 10.592631)
+transform = Transform3D(1, 0, 0, 0, 0.99958235, 0.028898641, 0, -0.028898641, 0.99958235, -0.21551812, 5.4169273, 10.592631)
 
 [node name="player" parent="." instance=ExtResource("1_80vhd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5144262, 0)

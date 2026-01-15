@@ -2,6 +2,12 @@ extends RigidBody3D
 class_name Player
 @export_range(750,2500) var force :=1000.0
 @export var torque := 100
+@export var starting_fuel = 500
+var ui : CanvasLayer
+var fuel : int:
+	set(amt):
+		fuel = amt
+		ui.update_fuel(amt)
 var transitioning :=false
 @onready var success: AudioStreamPlayer = $Success
 @onready var explosion: AudioStreamPlayer = $Explosion
@@ -16,15 +22,18 @@ var transitioning :=false
 
 
 func _ready() -> void:
-	pass
+	ui = get_tree().get_first_node_in_group("ui")
+	fuel = starting_fuel
 
 func _process(delta: float) -> void:
 	if not transitioning:
 		if Input.is_action_pressed("space"):
-			apply_central_force(basis.y *delta *force)
-			center.emitting=true
-			if not rocket.is_playing():
-				rocket.play()
+			if fuel>0:
+				fuel-=1
+				apply_central_force(basis.y *delta *force)
+				center.emitting=true
+				if not rocket.is_playing():
+					rocket.play()
 		else:
 			rocket.stop()
 			center.emitting=false
@@ -59,7 +68,7 @@ func crash_sequence():
 
 func complete_level(next_level):
 	success.play()
-	success_particles.emittingwd = true
+	success_particles.emitting = true
 	transitioning=true
 	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file.call_deferred(next_level)

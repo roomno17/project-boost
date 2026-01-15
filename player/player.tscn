@@ -1,17 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://dgoqies51lrhw"]
+[gd_scene load_steps=17 format=3 uid="uid://dgoqies51lrhw"]
 
 [ext_resource type="Script" uid="uid://b01rlved42qfa" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="AudioStream" uid="uid://73q7mavdhbbb" path="res://assets/SFX - Death Explosion.ogg" id="2_yw30f"]
 [ext_resource type="AudioStream" uid="uid://bt4a4qtprqy4b" path="res://assets/SFX - Success.ogg" id="3_qjkh3"]
 [ext_resource type="AudioStream" uid="uid://dfe23apob4s3j" path="res://assets/SFX - Main engine thrust.ogg" id="4_g6k8r"]
 [ext_resource type="PackedScene" uid="uid://ux6ivcx1ovdp" path="res://particles/booster_particles.tscn" id="5_qjkh3"]
-[ext_resource type="PackedScene" path="res://particles/success_particles.tscn" id="6_boad6"]
-[ext_resource type="PackedScene" path="res://particles/explosion_particles.tscn" id="7_rgyib"]
+[ext_resource type="PackedScene" uid="uid://jfwajmrh6ca7" path="res://particles/success_particles.tscn" id="6_boad6"]
+[ext_resource type="PackedScene" uid="uid://dcecb8hw7dbrv" path="res://particles/explosion_particles.tscn" id="7_rgyib"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_g1dw6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_boad6"]
-albedo_color = Color(0, 0.88235295, 0.6627451, 1)
+albedo_color = Color(0.6858277, 0.64411074, 0.6351755, 1)
+metallic = 0.4
+metallic_specular = 0.8
+metallic_texture_channel = 1
+roughness = 0.35
+clearcoat_enabled = true
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_oul6g"]
 
@@ -19,12 +24,21 @@ albedo_color = Color(0, 0.88235295, 0.6627451, 1)
 top_radius = 0.0
 height = 1.0
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_boad6"]
+points = PackedVector3Array(0, 0.5, 0, 0.048942864, -0.5, 0.49755287, 0.097494125, -0.5, 0.4903093, 0.14506656, -0.5, 0.47846514, 0.19126862, -0.5, 0.46192247, 0.23561078, -0.5, 0.44087708, 0.27770162, -0.5, 0.41572046, 0.31714958, -0.5, 0.38645262, 0.21211827, -0.100039154, 0.21211827, 0.38645262, -0.5, 0.31714958, 0.41572046, -0.5, 0.27770162, 0.44087708, -0.5, 0.23561078, 0.46192247, -0.5, 0.19126862, 0.47846514, -0.5, 0.14506656, 0.4903093, -0.5, 0.097494125, 0.49755287, -0.5, 0.048942864, 0.5, -0.5, 0, 0.29855132, -0.100039154, -0.02946359, 0.4903093, -0.5, -0.097592026, 0.47846514, -0.5, -0.14516446, 0.46192247, -0.5, -0.1913665, 0.44087708, -0.5, -0.23570868, 0.35268205, -0.30001956, -0.1886257, 0.41572046, -0.5, -0.27779955, 0.23189116, -0.100039154, -0.19038764, 0.21211827, -0.100039154, -0.21221614, 0.19028974, -0.100039154, -0.23198903, 0.27770162, -0.5, -0.41581833, 0.18852782, -0.30001956, -0.35277995, 0.19126862, -0.5, -0.46202037, 0.05804622, 0.09994125, -0.19146436, 0.097494125, -0.5, -0.4904072, 0.029365718, -0.100039154, -0.2986492, 0, 0.09994125, -0.20007831, -0.02946359, -0.100039154, -0.2986492, -0.097592026, -0.5, -0.4904072, -0.058144093, 0.09994125, -0.19146436, -0.1913665, -0.5, -0.46202037, -0.1886257, -0.30001956, -0.35277995, -0.09436178, 0.09994125, -0.17638996, -0.055599064, 0.2999217, -0.08320281, -0.06352779, 0.2999217, -0.077329665, -0.07077134, 0.2999217, -0.07077134, -0.077329665, 0.2999217, -0.06352779, -0.08320281, 0.2999217, -0.055599064, -0.17638996, 0.09994125, -0.09436178, -0.35277995, -0.30001956, -0.1886257, -0.46202037, -0.5, -0.1913665, -0.19146436, 0.09994125, -0.058144093, -0.4904072, -0.5, -0.097592026, -0.2986492, -0.100039154, -0.02946359, -0.20007831, 0.09994125, 0, -0.2986492, -0.100039154, 0.029365718, -0.4904072, -0.5, 0.097494125, -0.19146436, 0.09994125, 0.05804622, -0.46202037, -0.5, 0.19126862, -0.35277995, -0.30001956, 0.18852782, -0.41581833, -0.5, 0.27770162, -0.23198903, -0.100039154, 0.19028974, -0.21221614, -0.100039154, 0.21211827, -0.19038764, -0.100039154, 0.23189116, -0.27779955, -0.5, 0.41572046, -0.1886257, -0.30001956, 0.35268205, -0.23570868, -0.5, 0.44087708, -0.1913665, -0.5, 0.46192247, -0.14516446, -0.5, 0.47846514, -0.097592026, -0.5, 0.4903093, -0.02946359, -0.100039154, 0.29855132, 0, -0.5, 0.5, 0.35346514, -0.5, 0.35346514, 0.49755287, -0.5, -0.049040705, 0.38645262, -0.5, -0.31724745, 0.35346514, -0.5, -0.35356304, 0.31714958, -0.5, -0.38655052, 0.23561078, -0.5, -0.44097495, 0.14506656, -0.5, -0.47856304, 0.048942864, -0.5, -0.49765074, 0, -0.30001956, -0.40005875, -0.049040705, -0.5, -0.49765074, -0.14516446, -0.5, -0.47856304, -0.23570868, -0.5, -0.44097495, -0.27779955, -0.5, -0.41581833, -0.19038764, -0.100039154, -0.23198903, -0.21221614, -0.100039154, -0.21221614, -0.23198903, -0.100039154, -0.19038764, -0.41581833, -0.5, -0.27779955, -0.44097495, -0.5, -0.23570868, -0.47856304, -0.5, -0.14516446, -0.49765074, -0.5, -0.049040705, -0.40005875, -0.30001956, 0, -0.49765074, -0.5, 0.048942864, -0.47856304, -0.5, 0.14506656, -0.44097495, -0.5, 0.23561078, -0.38655052, -0.5, 0.31714958, -0.35356304, -0.5, 0.35346514, -0.31724745, -0.5, 0.38645262, -0.049040705, -0.5, 0.49755287, 0, -0.5, -0.5, -0.31724745, -0.5, -0.38655052, -0.35356304, -0.5, -0.35356304, -0.38655052, -0.5, -0.31724745, -0.5, -0.5, 0)
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_rgyib"]
 top_radius = 0.0
 bottom_radius = 0.15
 height = 0.45
 
 [sub_resource type="PrismMesh" id="PrismMesh_hg6s5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rgyib"]
+points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hg6s5"]
+points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [node name="player" type="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3693607, 0)
@@ -74,6 +88,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5005519, 0)
 mesh = SubResource("CylinderMesh_boad6")
 surface_material_override/0 = SubResource("StandardMaterial3D_boad6")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5005519, 0)
+shape = SubResource("ConvexPolygonShape3D_boad6")
+
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0093117, 0)
 mesh = SubResource("CylinderMesh_rgyib")
@@ -94,9 +112,27 @@ transform = Transform3D(-1.1281353e-08, 0.91641164, 0.80047417, -2.8776272e-08, 
 mesh = SubResource("PrismMesh_hg6s5")
 surface_material_override/0 = SubResource("StandardMaterial3D_boad6")
 
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.4985237, -0.070370026, -0.06146722, -2.8776272e-08, 0.40023708, -1.8328233, 0.03839432, -0.9137059, -0.7981107, -0.011931896, 0.043863833, -0.3242507)
+mesh = SubResource("PrismMesh_hg6s5")
+surface_material_override/0 = SubResource("StandardMaterial3D_boad6")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.49852368, -0.07037002, -0.061467208, -0.024043389, 0.26014125, 1.9287447, -0.029933924, 0.9630031, -0.5255135, 0.10730398, 0.04279676, 0.23857999)
+mesh = SubResource("PrismMesh_hg6s5")
+surface_material_override/0 = SubResource("StandardMaterial3D_boad6")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-1.1281353e-08, 0.91641164, 0.80047417, -2.8776272e-08, 0.40023708, -1.8328233, -0.5, -4.371139e-08, 8.742278e-08, 0.34827495, 0.091778696, 0)
+shape = SubResource("ConvexPolygonShape3D_rgyib")
+
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.1855694e-08, -0.9163627, 0.8006981, 0, 0.40034905, 1.8327254, -0.5, 4.0055486e-08, -3.4999626e-08, -0.348, 0.092, 0)
 mesh = SubResource("PrismMesh_hg6s5")
 surface_material_override/0 = SubResource("StandardMaterial3D_boad6")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(-2.1855694e-08, -0.9163627, 0.8006981, 0, 0.40034905, 1.8327254, -0.5, 4.0055486e-08, -3.4999626e-08, -0.348, 0.092, 0)
+shape = SubResource("ConvexPolygonShape3D_hg6s5")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,20 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg7wc8a56gw5l"]
+[gd_scene load_steps=8 format=3 uid="uid://cg7wc8a56gw5l"]
 
+[ext_resource type="PackedScene" uid="uid://1fll3osir48h" path="res://levels/canvas_layer.tscn" id="1_bmgug"]
 [ext_resource type="Script" uid="uid://7vq3wikl6qns" path="res://levels/land.gd" id="1_hldmh"]
 [ext_resource type="PackedScene" uid="uid://dgoqies51lrhw" path="res://player/player.tscn" id="2_gew73"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_umreq"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_80vhd"]
-sky_material = SubResource("ProceduralSkyMaterial_umreq")
-
-[sub_resource type="Environment" id="Environment_hjsbj"]
-background_mode = 2
-sky = SubResource("Sky_80vhd")
-tonemap_mode = 2
-glow_enabled = true
+[ext_resource type="PackedScene" uid="uid://bio4ooejc0ybk" path="res://levels/floor.tscn" id="3_gew73"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_umreq"]
 albedo_color = Color(0.99999887, 0.526115, 0.26886782, 1)
@@ -27,18 +16,7 @@ albedo_color = Color(1, 0, 0, 1)
 
 [node name="level2" type="Node3D"]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0.14899111, 12.763618, 0.75170374)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_hjsbj")
-
-[node name="floor" type="CSGBox3D" parent="." groups=["surroundings"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
-use_collision = true
-size = Vector3(34, 8, 5)
-material = SubResource("StandardMaterial3D_umreq")
+[node name="CanvasLayer" parent="." instance=ExtResource("1_bmgug")]
 
 [node name="floor2" type="CSGBox3D" parent="." groups=["surroundings"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.54340243, 4.204072, 0.599802)
@@ -87,3 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.5144262, 0)
 
 [node name="Camera3D2" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9978567, 0.06543796, 0, -0.06543796, 0.9978567, -0.21551812, 5.4469175, 10.592631)
+
+[node name="floor" parent="." instance=ExtResource("3_gew73")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, 0)
